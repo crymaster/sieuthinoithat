@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> </title>
+<style type="text/css">
+<!--
+.style1 {
+	font-size: 24px;
+	font-weight: bold;
+}
+-->
+</style>
+<!--    chuỗi khai báo tham số của google maps   -->
+<script type="text/javascript" 
+src="http://maps.googleapis.com/maps/api/js?sensor=false&language=vi"></script>
+<script type="text/javascript">
+var map;
+function initialize() {
+      var myLatlng = new google.maps.LatLng(21.002767,105.820715);
+      var myOptions = {
+    zoom: 16,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+}
+map = new google.maps.Map(document.getElementById("div_id"), myOptions); 
+  // Bi?n text ch?a n?i dung s? du?c hi?n th?
+var text;
+text= "<b style='color:#00F' " + 
+         "style='text-align:center'>Showrom của chúng tôi !<br />" + 
+     "<img src='media/aptech.jpg'  /></b>";
+   var infowindow = new google.maps.InfoWindow(
+    { content: text,
+        size: new google.maps.Size(100,50),
+        position: myLatlng
+    });
+       infowindow.open(map);    
+    var marker = new google.maps.Marker({
+      position: myLatlng, 
+      map: map,
+      title:"Trường Hà Nội- Aptech !"
+  });
+}
+</script>
+</head>
+<body onLoad="initialize()">
+	<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+	<tr>
+	<td height="300" align="left" valign="top" bgcolor="#FFFFFF" id=""><div id="div_id" style="height:500px; width:800px"></div>
+	</td>
+	<td width="10">&nbsp;</td>
+	
+	<td width="10">&nbsp;</td>
+	<td width="159" align="center" valign="top">
+	<?php require("include/menu_support.php");?><br />
+	<?php require("include/menu_news.php");?></td>
+	</tr>
+	</table>
+	
+</body>
+</html>
+

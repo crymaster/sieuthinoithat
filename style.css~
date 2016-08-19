@@ -1,0 +1,379 @@
+/* CSS Document */
+*{margin:0;padding:0;}
+body{
+	background:url(images/bg_body.png);
+}
+
+
+
+#wapper{
+	display:block;
+	margin:0px auto;
+	width:1000px;
+/*	background:#fdfdfd;*/
+}
+#header{
+	display:block;
+	width:1000px;
+	/*height:185px;*/
+	height:204px;
+	background:#fdfdfd;
+}
+		#logo{
+			width:250px;
+			height:145px;
+			background:url(images/logo1.jpg) no-repeat;
+			float:left;
+		}
+		#banner{
+			width:400px;
+			height:145px;
+			background:url(images/sologan.png) no-repeat;
+			float:left;
+		}
+		#login{
+			background:#fdfdfd;
+			/*height:145px;*/
+			float:left;
+			width:350px;
+		}
+		/*-----------------------------------------------------*/
+						#shoppingcate{
+							width:140px;
+							/*height:27px;*/
+							float:right;
+							display:block;
+						}
+						#shoppingcate ul{
+							width:140px;
+							height:27px;
+							float:right;
+							background:url(images/bg_cart.png) no-repeat;
+							
+						}
+						#shoppingcate ul none_bg{
+							background:none;
+						}
+						#shoppingcate ul li{
+							display:block;
+							list-style-type:none;
+							float:left;
+							padding:.3em 5px;	
+						}
+						
+						
+						#shoppingcate ul li a{
+							text-decoration:none;
+							color:#fff;
+						}
+						#quantity{
+							color:#E10431;
+							font-size:1.3em;
+							font-family:"Times New Roman", Times, serif;
+							
+						}
+						#ico_cart{
+							margin:2px 0px 0px 5px;
+						}
+						#waplog{
+							height:145px;
+							margin-right:10px;
+							display:block;
+							float:right;
+							
+						}
+						
+						
+						
+						
+						
+						
+						#login #logon ul{
+							float:right;
+							margin:90px 0px 0px 10px;
+							display:block;
+						
+						
+						}
+						#login #logon ul li{
+							list-style-type:none;
+							float:left;
+						}
+						#login #logon ul li a{
+							text-decoration:none;
+							display:block;
+							float:left;
+							padding:1px 5px;
+							color:#191919;
+							
+						}
+						/*thu lai voi lop rieng?????*/
+						/*.none_boder{
+							border-right:none;
+						}*/
+						#help_sale{
+							color:red;
+						}
+						/*--------------------------------------------------------*/		
+		.clear{
+			clear:both;
+		}
+		
+/*---------------------------------*/
+		/*#menubar{
+			width:1000px;
+			background:#8a8a8a;
+			height:36px;
+		}
+						/*----------------------------------------------------------*/
+/*						#menubar{
+								padding: 15px 0px 0px 0px;
+								margin: -16px 0px 0px 0px;
+								border-top:1px solid #ff9400;
+								border-bottom:1px #ff9400 solid;
+							
+						}
+							#menubar ul{
+							margin: 12px 0px 0px 0px;
+							padding: 0px 0px 0px 30px;
+							float:left;
+							}
+							#menubar ul li{
+							list-style-type: none;
+							display: block;
+							float: left;
+							margin: 0px 12px;
+								
+							}
+							#menubar ul li a{
+								text-decoration:none;
+								color:#000;
+								font-family:Arial, Helvetica, sans-serif;
+								font-weight:bold;
+								font-size:12px;
+							}
+							#menubar li a:hover{
+								background:#FC0;
+							}*/
+							/*-------------------------------------------*/
+
+							/*-------------titel_page---------------*/
+							/*.titel_page{
+								text-transform:uppercase;
+								font-family:Verdana,Geneva, Arial, Helvetica, sans-serif;
+								color:#252525;
+								font-size:25px;
+								text-align:center;
+								font-weight:bold;
+								margin:25px 0px -15px 0px;
+								
+							}*/
+							
+		/*-------------------------------------------*/					
+								
+							#search{
+								float:right;
+								margin: 1px 5px 0px 0px;
+							
+							}
+							#search #input_keywork{
+								border:1px solid #333;
+								color:#333;
+							}
+							
+							
+							
+		/*---------------------------------*/
+		#line{
+			width:1000px;
+			height:5px;
+			background:url(images/line.png) repeat-x;
+		}
+		
+/*----------------------------contain---------------------------------*/
+#contain{
+	width:1000px;
+/*	background:#ffffff;*/
+}
+
+		/*--------------------------------------------*/
+		.titel_page{
+			height:55px;
+			font-family:"Times New Roman", Times, serif;
+			text-align:center;
+			font-weight:bold;
+			color:#252525;
+			font-size:24px;
+			margin:25px 0px 0px 0px;
+			background:url(images/bg_titel.png);
+			text-transform:uppercase;
+		}
+		#titel_page{
+			background:url(images/bg_titel.png);
+			text-transform:uppercase;
+		}
+		.titel_page_new{
+			height:55px;
+			font-family:Tahoma, Geneva, sans-serif;
+			text-align:center;
+			font-weight:bold;
+			color:#252525;
+			font-size:1.7em;
+			margin:5px 0px 0px 0px;
+			padding:15px 0px 12px 0px;
+			text-transform:uppercase;
+			background:#fff;
+		}
+		.info_page{
+			height:50px;
+			/*background:#CCC;*/
+		}	
+
+		#line_content{
+			height:3px;
+			background:#d7d7d7;
+			border-bottom:1px #8a8a8a solid;
+			border-top:1px #8a8a8a solid;
+			
+		}
+			
+			
+		
+		#quangba{
+			width: 950px;
+			padding: 5px 0px 5px 30px;
+		}
+		/*-------------content--------------------*/
+		#content{
+			width:1000px;
+			background:#ffffff;
+			display:table;
+			/*height:800px;*/
+			/*background:url(images/bg.jpg);*/
+		}
+					/*------------------------------------*/
+					#show{
+						/*background:#e1e1e1;*/
+						background:#ffffff;
+						/*height:800px;*/
+						width:788px;
+						float:left;
+						
+					}
+					#sort_img{
+						height:25px;
+						background:#F0F0F0;
+					}
+					.img{
+						width:188px;
+						height:248px;
+						/*background:#d7d7d7;*/
+						float:left;
+						margin:5px 0px 0px 6px;
+						border:1px solid #a8a8a8;
+					}
+					.detail_img{
+						height:130px;
+						background:red;
+					}
+					.detail_name_product{
+					
+						height:50px;
+						background:green;
+					}
+					.detail_priceSale{
+						
+						height:28px;
+						background:yellow;
+					}
+					.goto_spCate{
+						
+						height:40px;
+						background:red;
+					}
+					/*------------------------*/
+					#phantrang{
+						/*background:#333;*/
+						height:40px;
+					}
+					.page_number{
+						width:30px;
+						height:20px;
+						background:#8a8a8a;
+						text-align:center;
+						margin:5px 0px 0px 6px;
+						float:left;
+						padding:4px 0px 4px 0px
+						
+					}
+					.page_number:hover{
+						color:#fff;
+					}
+					/*------------------------*/
+
+/*------------------------------footer--------------------------------------*/
+#footer{
+	width:1000px;
+	/*height:180px;*/
+	background:url(images/sss.jpg);
+	margin-top:10px;
+}
+		#contact{
+			height:125px;
+			
+		}
+				.footer_info{
+					width:190px;
+					display:block;
+					/*background:#CCC;*/
+					height:125px;
+					float:left;
+					margin:10px 0px 0px 8px;
+				}
+					.titel_footer{
+						color:#E1F0FF;
+						font-size:12px;
+						font-family:Georgia, "Times New Roman", Times, serif;
+						font-weight:bold;
+						text-align:center;
+					}
+					
+					.line_footer{
+						height:1px;
+						width:190px;
+						margin:5px 0px 0px 0px;
+					/*	background:#ffffff;*/
+						background:url(images/line_footer.png) no-repeat;
+					}
+					.foo_info_detail{
+						margin: 12px 0px 0px 10px;
+					}
+					.foo_info_detail a{
+						text-decoration:none;
+						color:#EBEBEB;
+						font-size:14px;
+						font-style:italic;
+						width:180px;
+
+					}
+					
+		#copyright{
+			/*background:#C30;*/
+			height:50px;
+			text-align:center;
+			font-style:italic;
+			/*margin:-16px 0px 0px 0px;*/
+			color:#8a8a8a;
+			
+		}
+			#groupwork{
+				padding:5px 0px 2px 0px !important;
+			}
+			#by{
+				/*margin:-15px 0px 0px 0px;*/
+			}
+
+/*-------------------------------------------*/
+
+
+

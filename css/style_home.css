@@ -1,0 +1,77 @@
+/* CSS Document */
+*{margin:0;padding:0;}
+#conten_home{
+	width:1000px;
+	margin:0px auto;
+}
+#big_img{
+	width:1000px;
+	height:488px;
+	background:red;
+}
+#img_cate{
+	width:1000px;
+	height:280px;
+	float:left;
+	/*background:green;*/
+}
+.img_gp_category{
+	display:block;
+	width:220px;
+	height:262px;
+	background:#a8a8a8;
+	float:left;
+	margin:10px 40px 0px 0px;
+	
+}
+#right_ex{
+	display:block;
+	width:220px;
+	height:262px;
+	background:#a8a8a8;
+	float:left;
+	margin:10px 0px 0px 0px !important;
+	
+}
+.clear{
+	clear:both;
+}
+.titel_welcome{
+	float: left;
+	font-size: 50px;
+	height: 140px;
+	line-height: 140px;
+	vertical-align: middle;
+	width: 240px;
+	letter-spacing: -10px;
+}
+.review{
+padding-top: 30px;
+font-size: 11px;
+color: #828282;
+}
+
+.title_recommend_item {
+	float: left;
+	font-size: 50px;
+	height: 140px;
+	line-height: 140px;
+	vertical-align: middle;
+	width: 700px;
+	letter-spacing: -5px;
+}
+
+.item_text {
+	text-align: center;
+	color: #191919;
+	text-decoration: none;
+}
+
+#slide .item{
+	margin: 3px;
+}
+#slide .item a img{
+	display: block;
+	width: 100%;
+	height: auto;
+}

@@ -1,0 +1,92 @@
+/* CSS Document */
+#contpro{
+	display:table;
+	width:1000px;
+/*	background:green;*/
+}
+#left_menu{
+	display:table;
+	float:left;
+	width:185px;
+	height:450px;
+	background:url(../images/black_mosaic_by_seikq.jpg);
+}
+#right_menu{
+	width:185px;
+	display:table;
+	float:left;
+}
+#contant_product{
+	display:tables;
+	float:left;
+	width:630px;
+	/*background:red;*/
+}
+#titel_page{
+	width:630px;
+	height:45px;
+	background:#a8a8a8;
+	text-align:center;
+	font-size:24px;
+	padding:17px 0px 0px 0px;
+}
+.detail_p{
+	width:200px;
+	height:250px;
+	display:table;
+	background:#fff;
+	float:left;
+	margin:5px 0px 0px 7px;
+}
+#name_product{
+	height:20px;
+	width:200px;
+	background:url(../media/background_pro.gif);
+	text-align:center;
+	padding:5px 0px 0px 0px;
+}
+.name a{
+	text-decoration:none;
+	font-size:14px;
+	color:#1D1D1D;
+	
+}
+/*--------*/
+#price{
+	width:200px;
+	text-align:center;
+}
+#deital{
+	margin:15px 0px 0px 0px;
+}
+#chitiet{
+	float:left;
+	height:27px;
+	width:74px;
+	/*background:url(../media/detail.jpg) no-repeat;*/
+	margin:0px 5px 0px 5px;
+}
+#goto_cateShop{
+	float:left;
+	height:27px;
+	width:100px;
+	/*background:url(../media/buy.jpg) no-repeat;*/
+	margin:0px 0px 0px 5px;
+}
+#page{
+	text-align:center;
+	height:27px;
+	margin:5px 0px 0px 0px;
+}
+#page a{
+	background:url(../images/li-banner.png) no-repeat;
+	width:27px;
+	height:27px;
+	text-decoration:none;
+	padding:0px 9px 8px 10px;
+	margin:0px 5px 0px 2px;
+	color:#fff;
+}
+#page a:hover{
+	background:url(../images/li-banner-active.png) no-repeat;
+}

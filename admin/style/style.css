@@ -1,0 +1,165 @@
+.row {
+	font-family: Tahoma;
+	font-size: 13px;
+	color: #000000;
+	height:25px;
+	background-color: #CCCCCC;
+}
+.row_one {
+	font-family: Tahoma;
+	font-size: 13px;
+	/*color:#000000;*/
+	font-weight:bold;
+	height:27px;
+	/*background-color: #CCCCCC;*/
+	background: #666666;
+	color:#FFFFFF;
+}
+.title {
+	font-family: Tahoma;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #333333;
+	height:30px;
+	margin-left:15px;
+}
+.top  a{
+font-family:"Times New Roman", Times, serif;
+text-decoration:none;
+color:#FFFFFF;
+text-decoration:none;
+font-style:italic;
+font-size: 14px;
+font-weight:bold;
+}
+.over {
+	background-color:#999999;
+}
+.out {
+	text-decoration: none;
+}
+
+
+.style4 {
+	font-size: xx-large;
+	font-weight: bold;
+	font-style: italic;
+	color: #FFFF00;
+}
+
+.style4 {
+	
+	font-weight: bold;
+	font-style: italic;
+	color: #FFFF00;
+	font-size:36px;
+}
+
+.style5 {
+	font-size: 24px;
+	font-weight: bold;
+	font-style: italic;
+}
+.style1{
+	font-size: x-large;
+	font-weight: bold;}
+
+a
+{
+color:#0000FF;
+text-decoration:none;
+}
+/* CSS Document */
+
+.menungang{
+font: bold 13px Arial;
+width: 100%; 
+overflow: hidden;
+}
+
+.menungang ul{
+margin: 0;
+padding: 0;
+float: left;
+width: 100%; 
+border: 1px solid #564c66; 
+border-width: 1px 0;
+background: black url(../../media/123.jpg) center center repeat-x;
+}
+
+.menungang ul li{
+display: inline;
+}
+.menungang ul li a{
+font-family:"Times New Roman", Times, serif;
+color: #333333;
+font-style:italic;
+font-size:14px;
+float: left;
+color: white; 
+padding: 6px 12px;
+text-decoration: none;
+border-right: 1px solid #564c66; 
+}
+
+.menungang ul li a:visited{
+color: white;
+}
+
+.menungang ul li a:hover, .menungang ul li .current{
+color: white !important; 
+padding-top: 7px; 
+padding-bottom: 5px; 
+background: black url(../../media/123.jpg) center center repeat-x;
+}
+.cusName{
+font-family:"Times New Roman", Times, serif;
+text-decoration:none;
+color: #FFFF33;
+font-style:italic;
+font-size: 18px;
+}
+.xinchao{
+font-family:"Times New Roman", Times, serif;
+text-decoration:none; 
+color:#FFFFFF;
+font-style:italic;
+font-size: 18px;
+font-weight:bold;
+}
+.button{
+font-family:"Times New Roman", Times, serif;
+text-decoration:none; 
+color:#000000;
+font-style:italic;
+font-weight:bold;
+font-size: 18px;
+}
+#title{
+font-family:"Times New Roman", Times, serif;
+font-size:30px;
+color:#FF0000;
+font-style:italic;
+}
+.datetime{
+font-family:"Times New Roman", Times, serif;
+text-decoration:none;
+color: #333333;
+font-style:italic;
+font-size:14px;
+}
+.status{
+font-family:"Times New Roman", Times, serif;
+text-decoration:none;
+color: #333333;
+font-style:italic;
+font-size:16px;
+}
+.header{
+font-family:"Times New Roman", Times, serif;
+text-decoration:none;
+color: #000000;
+font-style:italic;
+font-size:20px;
+}

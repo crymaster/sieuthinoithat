@@ -1,0 +1,24 @@
+/* CSS Document */
+#title_s{
+	width:185px;
+	height:33px;
+	background:url(../images/seach.png) no-repeat;
+}
+.titel_s_info{
+	color:#FF9;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:12px;
+	text-transform:uppercase;
+	padding:8px 0px 0px 0px;
+	text-align:center;
+}
+.line_s{
+	width:150px;
+	height:28px;
+	margin:0px 15px 0px 17px;
+	/*background:red;*/
+}
+#btt{
+	padding-bottom:10px;
+	margin:0px 0px 0px 55px;
+}

@@ -1,0 +1,137 @@
+<style>
+	.class1 { font-size:15px; font-family:"Times New Roman", Times, serif
+	}
+</style>
+<div id="regis">
+	<div id="tit" style="background-color:#FFFFFF; color:#FF0000">
+    	Đăng ký thông tin cá nhân 
+    </div>
+	
+<form action="index.php?go=register&action=insert" method="post" onsubmit="return checkRegister();">
+<fieldset><legend><b>Thông tin đăng nhập</b></legend>
+<table width="100%" border="0" class="class1" style="background-color:#FFFFFF">
+  <tr>
+    <td width="204" height="45px" align="right" class="class1">Tên đăng nhập : </td>
+    <td width="144"  height="45px" align="left"><input name="user" type="text" id="user" size="30" /></td>
+    <br />
+  </tr>
+  <tr>
+    <td align="right" class="class1" height="45px">Mật khẩu :</td>
+    <td align="left" height="45px"><input name="pass" type="password" id="pass" value="" size="30" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" class="class1" style="background-color:#FFFFFF">
+  <tr>
+    <td width="204" height="45px" align="right" class="class1">Xác nhận mật khẩu :</td>
+    <td width="144" height="45px" align="left"><input name="pass1" type="password" id="pass1" size="30" /></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</fieldset><fieldset><legend><b>Thông tin cá nhân</b></legend>
+<table width="100%" border="0" class="class1" style="background-color:#FFFFFF">
+  <tr>
+    <td width="204" align="right" class="class1" height="45px">Email :</td>
+    <td width="144" align="left" height="45px"><input name="email" type="text" id="email" size="30" /></td>
+  </tr>
+  <tr>
+    <td width="204" height="45px" align="right" class="class1">Họ và tên :</td>
+    <td width="144" height="45px" align="left"><input name="name" type="text" id="name" size="30" /></td>
+  </tr>
+  <tr>
+    <td align="right" class="class1" height="45px">Giới tính :</td>
+    <td align="left" height="45px"><input name="gender" type="radio" value="1" checked="checked" />
+      Nam
+      <input type="radio" name="gender" value="0" />
+      Nữ
+      <input type="radio" name="gender" value="2" />
+      Khác </td>
+  </tr>
+  <tr>
+    <td align="right" class="class1" height="45px">Ðịa chỉ :</td>
+    <td align="left" height="45px"><input name="address" type="text" id="address" size="30" /></td>
+  </tr>
+  <tr>
+    <td align="right" class="class1" height="45px">Số điện thoại :</td>
+    <td align="left" height="45px"><input name="phone" type="text" id="phone" size="30" /></td>
+  </tr>
+  <tr>
+    <td align="right" class="class1" height="45px">Câu hỏi bí mật : </td>
+    <?php
+		$sql="select * from question ";
+		$re= mysql_query($sql,$connect);
+	  ?>
+    <td align="left"><select name="ques" id="ques">
+      <option value="0">--Chọn câu hỏi--</option>
+      <?php
+                        while($row=mysql_fetch_array($re))
+                        {
+                    ?>
+      <option value="<?php echo($row['quesID']);?>"><?php echo($row['question']);?></option>
+      <?php
+                        }
+                    ?>
+    </select>
+    </td>
+  </tr>
+  <tr>
+    <td align="right" height="45px">Câu trả lời :</td>
+    <td align="left" height="45px"><input name="answer" type="text" id="answer" size="30" /></td>
+  </tr>
+  <tr>
+    <td align="right" height="45px"><input type="submit" name="register" id="register" value="Ðăng ký" /></td>
+    <td align="left" height="45px"><input name="reset" type="reset" value="Nhập lại" /></td>
+  </tr>
+</table>
+</fieldset>
+
+<?php echo $err;?>
+<?php
+$err="";
+$action=$_REQUEST['action'];
+if($action=='insert')
+{
+
+if(isset($_REQUEST['user']))
+	{
+		if($_REQUEST['user']!=$_SESSION['CusUser'])
+    	{
+		$cususer =$_REQUEST[user];
+		$cuspass =$_REQUEST['pass'];
+		$cuspass_conf =$_REQUEST['pass1'];
+		$cusname =$_REQUEST['name'];
+		$cusadd =$_REQUEST['address'];
+		$cusphone =$_REQUEST['phone'];
+		$cusemail = $_REQUEST['email'];
+		//$mahoapass=md5($cuspass);
+		$mahoapass=$cuspass;
+		$macauhoi=$_REQUEST['ques'];
+		$traloi=$_REQUEST['answer'];
+		$gender=$_REQUEST['gender'];
+	
+		$ck="Select * from customers where cUser='".$cususer."'";
+				$re_ck = mysql_query($ck,$connect);
+				$row = mysql_num_rows($re_ck);
+				
+			
+			if($row>=1)
+			{
+			        echo("<script>alert('Tên đăng nhập đã tồn tại');</script>");
+			        echo("<script>window.location='index.php?go=register';</script>");
+			}
+		
+			else
+			{			
+	$sql="insert into customers(cUser,cPassWord,cName,cAddress,cPhone,cEmail,quesID,answer,status,gender) values('".$cususer."','".$mahoapass."','".$cusname."','".$cusadd."','".$cusphone."','".$cusemail."',".$macauhoi.",'".$traloi."',1,$gender)";
+	if(mysql_query($sql,$connect))
+				{
+		echo("<script>alert('Bạn đã thành viên thành công. Chào mừng bạn đến với website của chúng tôi !');</script>");
+	   redirect("index.php?go=home");
+				}
+			}
+		}
+	}
+}
+?>
+</form>
+    
+</div>

@@ -1,0 +1,61 @@
+/* CSS Document */
+
+					#sitebar{
+						background:#FFF;
+						width:185px;
+						/*height:500px;*/
+						float:left;
+					}
+					.sitebar_detail{
+						/*margin: -15px 0px 0px 0px;*/
+						background:url(../images/sss.jpg);
+					}
+					#titel_sitebar{
+						height:33px;
+/*						background:url(images/title_sitebar.jpg) no-repeat;*/
+					}
+					/*-------------line_sitebar---------------*/
+					.line_sitebar{
+						height:1px;
+						width:185px;
+					/*	background:#ffffff;*/
+						background:url(../images/line_sbar.png) no-repeat;
+					
+					}
+
+					/*----------------------------*/
+					.sitebar_info{
+						height:25px;
+						padding:7px 0px 1px 0px;
+/*						background:url(images/sitebar_info.jpg);*/
+						margin:2px 0px 2px 0px;
+						text-align:center;
+					}
+					.sitebar_info a{
+						text-decoration:none;
+						color:#E4E4E4;
+						padding:0px 0px 0px 10px;
+					}
+					.titel_info{
+						color:#FF9;
+						font-family:Georgia, "Times New Roman", Times, serif;
+						font-size:12px;
+						text-transform:uppercase;
+						padding:8px 0px 0px 5px;
+						text-align:center;
+					}
+					/*--------------------------------------*/
+				
+					ul.menuperson li a{
+						text-decoration:none;
+					}
+					.menuperson{
+						text-align:center;
+						height:70px;
+						margin:2px 0px 0px 0px;
+					}
+					/*----------------------------------------*/
+					#support{
+						background:url(../images/sss.jpg);
+					}
+					

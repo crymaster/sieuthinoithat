@@ -1,0 +1,33 @@
+Muc tieu:
+-Tao ra 1 carousel tren trang chu bao gom nhung san pham ma nguoi dung co the quan tam den.
+-Carousel gom 20 item.
+-Item hien thi:
++Neu nguoi dung chua dang nhap thi hien thi most buy
++Neu nguoi dung da dang nhap nhung chua mua
+--Da view: hien thi item da view va item lien quan
++Neu nguoi dung da dang nhap va da mua san pham
+--Khong hien thi san pham da mua
+--Hien thi san pham lien quan den san pham cuoi cung da mua
+--Hien thi san pham da view va san pham lien quan
+Truong hop san pham khong du 20 thi phan con lai se hien thi san pham most buy.
+
+Phuong an:
+Most buy: dung nhu best_sale.php
+
+Item da view: 
+-Tao bang USER_VIEW_HISTORY(id,userId,productId,lastViewDate,viewNumber)
+-Implement insert/update USER_VIEW_HISTORY tai product_detail.php
+
+Item lien quan:
+-Tieu chi danh gia Item lien quan:
+A-Item duoc mua ngay truoc/sau item chinh boi cac user khac: 0.3
+B-Cung category: 0.2
+C-Cung mau sac: 0.1
+=> Do lien quan = 0.3xA + 0.2xB + 0.1xC
+
+-Thoi diem tinh toan do lien quan
+1.Khi insert new product: product_add_new.php
+2.Khi edit product: product_edit.php
+3.Khi mua san pham: shoppingcart_send3.php
+
+-Tao bang PRODUCT_RELATION(id,productId1,productId2,point)

@@ -1,0 +1,143 @@
+<?
+//thông tin hóa don chi ti?t: 
+$ordid=$_REQUEST['oid'];
+$sql="SELECT orders.*,customers.*,paymentmethod.* , orderdetail.* ,orders.status AS status1 FROM orders, customers,paymentmethod, orderdetail where paymentmethod.payID=orders.payID and  customers.cID=orders.cID and orderdetail.oID = orders.oID and orders.oID=".$ordid;
+//echo($sql);
+//die();
+$re=mysql_query($sql,$connect);
+$row=mysql_fetch_array($re);
+?>
+
+
+
+<table width="100%" border="0" >
+<tr>
+<td height="50" colspan="3" align="center"  background="../media/banner_l.jpg"><span class="style1">CHI TIẾT HÓA ĐƠN</span> </td>
+</tr>
+<tr>
+<td class="row_one" align="center" width="35%" > Thông tin hoá đơn</td>
+<td class="row_one" align="center" width="38%" > Thông tin khách hàng</td>
+<td class="row_one" align="center" width="27%" > Thông tin người nhận </td>
+</tr>
+<tr valign="top">
+<td ><table width="100%" border="0" cellpadding="3" cellspacing="3">
+<tr>
+<td class="row" width="118" >Mã hoá đơn</td>
+<td class="row" width="102" align="left"><?php echo($ordid);?></td>
+</tr>
+<tr>
+<td class="row" >Ngày mua </td>
+<td class="row" align="left"><?php echo($row['oDateCreate']);?></td>
+</tr>
+<tr>
+<td class="row" >Ngày giao hàng </td>
+<td class="row" align="left"><?php echo($row['oShipDate']);?></td>
+</tr>
+<tr>
+<td class="row" >Trạng thái </td>
+<td class="row" align="left">
+
+
+<?
+if($row['status1']==3)
+{
+?>
+Đã xử lý
+<?
+}else{
+if($row['status1']==2){
+?>
+Đang xử lý
+<?
+}else{
+?>
+Chưa xử lý
+<?
+}}
+?>
+</select>          </td>
+</tr>
+<tr>
+<td class="row" >Hình thức thanh toán</td>
+<td class="row" align="left"><?php echo($row['payType']);?></td>
+</tr>
+</table></td>
+<td><table width="100%" border="0" cellspacing="3" cellpadding="3">
+<tr>
+<td class="row" width="31%" >Tên khách hàng </td>
+<td class="row" width="69%" align="left"><?php echo($row['cName']);?></td>
+</tr>
+<tr>
+<td class="row" >Địa chỉ </td>
+<td class="row" align="left"><?php echo($row['cAddress']);?></td>
+</tr>
+<tr>
+<td class="row">Số điện thoại</td>
+<td class="row" align="left"><?php echo($row['cPhone']);?></td>
+</tr>
+<tr>
+<td class="row" >Email</td>
+<td class="row" align="left"><?php echo($row['cEmail']);?></td>
+</tr>
+</table></td>
+<td><table width="100%" border="0" cellspacing="3" cellpadding="3">
+<tr>
+<td class="row" width="56%" >Tên người nhận </td>
+<td class="row" width="44%" align="left"><?php echo($row['ordName']);?></td>
+</tr>
+<tr>
+<td class="row" >Điạ chỉ </td>
+<td class="row" align="left"><?php echo($row['ordAdd']);?></td>
+</tr>
+<tr>
+<td class="row">Số điện thoại </td>
+<td class="row" align="left"><?php echo($row['ordPhone']);?></td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</table></td>
+</tr>
+</table>
+<?php
+	$oid=$_REQUEST['oid'];
+	$sql ="SELECT orderdetail.oID,orderdetail.quantity,orderdetail.ordPrice,orderdetail.proID ,orderdetail.quantity*orderdetail.ordPrice  as Total,proName FROM product, orderdetail where product.proID=orderdetail.proID and oID=".$oid;
+	$re=mysql_query($sql,$connect);
+?>
+<form name="form1" method="post" action="">
+  <table width="100%" border="0" cellspacing="3" cellpadding="3">
+    <tr>
+      <th class="row_one" width="10" >STT</th>
+      <th class="row_one" >Mã sản phẩm </th>
+      <th class="row_one" >Tên sản phẩm </th>
+      <th class="row_one"  >Số lường </th>
+      <th class="row_one"  >Giá</th>
+      <th class="row_one"  >Tổng tiền </th>
+    </tr>
+    <?php
+  	$i=0;
+	$totalmoney=0.0;
+	while($row=mysql_fetch_array($re))
+	{
+	$i++;
+	$totalmoney +=$row['quantity']*$row['ordPrice'];
+  ?>
+    <tr>
+      <td align="center" valign="middle" class="row"><?php echo($i);?></td>
+      <td align="center" class="row"><?php echo($row['proID'])?></td>
+      <td align="center" class="row"><?php echo($row['proName'])?></td>
+      <td align="center" class="row"><?php echo($row['quantity'])?></td>
+      <td align="center" class="row"><?php echo(number_format($row['ordPrice']))?> VND</td>
+      <td align="center" class="row"><?php echo(number_format($row['Total']))?> VND </td>
+    </tr>
+    <?php
+  }
+  ?>
+    <tr>
+      <td colspan="5" align="right" valign="middle" class="row">Tổng : </td>
+      <td align="center" class="row" style="color:#FF0000; font-weight:bold"><?php echo(number_format($totalmoney));?> VND</td>
+    </tr>
+  </table>
+</form>
+<div align="center"><input type="button" name="Button" value="Quay lại" onclick="location.href='admin.php?go=ordlist'" /></div>
+

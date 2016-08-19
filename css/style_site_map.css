@@ -1,0 +1,24 @@
+/* CSS Document */
+
+		#site_map{
+			height:40px;
+			background:url(../images/bg_sitemap.png) repeat-x;
+		}
+		#site_map ul{
+			display:block;
+			float:left;
+			margin: 5px 0px 0px 50px;
+		}
+		#site_map ul li{
+			list-style-type:none;
+			display:block;
+			float:left;
+			padding:.3em 5px;
+		}
+		#site_map ul li a{
+			text-decoration:none;
+			color:#F8F8F8;
+		}
+		#site_map ul li .temp{
+			margin:6px 0px 0px 0px;
+		}

@@ -1,0 +1,82 @@
+/* CSS Document */
+
+/*---------------------------------*/
+* {margin:0; padding:0;}
+#menu{
+	width:1000px;
+	/*margin:0px auto;*/
+	/*background:#e4e4e4;*/
+	border-bottom:1px #033 solid;
+	float:left;
+}
+#menu ul{
+	margin:0px 0px 0px 5px;
+	float:left;
+	list-style-type:none;
+/*	border:#8a8a8a solid 1px;*/
+}
+#menu ul li{
+	position:relative;
+	float:left;
+	
+}
+#menu ul li a{
+	display:block;
+	color:#292929;
+	text-decoration:none;
+	padding:.4em 10px;
+	font-weight:bold;	
+
+}
+#menu ul li a:hover{
+	color:#ED3E03;
+	/*font-style:italic;*/
+	/*background:#FF0;*/
+}
+#menu li ul{
+	position:absolute;
+	display:none;
+	width:10em;
+}
+#menu ul li:hover ul{
+	display:block;
+}
+#menu ul li ul{
+	background:url(../images/bg_li_ul.png);
+	
+}
+#menu ul li ul li{
+	width:100%;
+	/*border:#009 1px solid;*/
+}
+#menu ul li ul li a{
+	color:#F0F0F0;
+}
+#menu ul li ul li:hover{
+	font-style:italic;
+	font-family:"Times New Roman", Times, serif;
+	font-weight:normal;
+}
+#menu ul li ul li a:hover{
+	background:none;
+}
+
+a:hover{ color:#FF0000;}
+
+/*---------------------*/
+.img_line{
+	margin:6px 0px 0px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
