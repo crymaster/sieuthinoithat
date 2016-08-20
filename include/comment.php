@@ -1,4 +1,4 @@
-<?
+<?php
 $action=$_REQUEST['action'];
 if($action=='feed')
 {
@@ -35,7 +35,7 @@ if($action=='feed')
 		?>
 		alert('Bạn cần đăng nhập để bình luận cho sản phẩm này');
 		return false
-		<?
+		<?php
 		}
 		?>
 		var obj1=document.getElementById('comtitle');
@@ -55,7 +55,7 @@ if($action=='feed')
 		return true;
 	}
 </script>
-<form id="frm" name="frm" method="post" action="index.php?go=product_detail&action=feed&cateID=<? echo $cateID; ?>&pid=<? echo $pid ;?>&gpCateID=<? echo $gpCateID; ?>" onsubmit="return checkComment();" >
+<form id="frm" name="frm" method="post" action="" onsubmit="return checkComment();" >
 	<table class="borderAllTable" width="100%" border="0" cellspacing="0" cellpadding="0" >
 	<tr>
 	<td></td>
@@ -81,7 +81,7 @@ if($action=='feed')
 	</tr>
 	<tr>
 	<td align="left" valign="top"><textarea name="comcontent" class="boder_text" cols="55" rows="8" id="comcontent"></textarea>
-	;</td>
+	</td>
 	</tr>
 	<tr>
 	<td align="center"><input type="submit" name="Submit" value="Gửi bình luận">

@@ -104,21 +104,11 @@ function nonShow(index)
 	<td>
 	<img src="media/Y-kien-cua-ban.gif" width="131" height="22" onclick="show('feed')"/>
 	<div id="feed" style="display:none">
-	<?php	require('comment.php'); ?>
+	<?php include 'comment.php'; ?>
 	</div></td>
 	</tr>
 	<tr>
-	<td><?php //require("advertifement/prodetail_under.php")?></td>
-	</tr>
-	</table>
-</td>
-<td valign="top" align="right" width="165">
-	<table border="0" cellspacing="0" cellpadding="0">
-	<tr>
 	<td>
-	<?php //require("search/Form_searchadvanced.php");?><br />
-	
-	</td>
 	</tr>
 	</table>
 </td>

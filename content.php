@@ -1,4 +1,5 @@
 <?php
+	require 'controller/Controller.php';
 	$callPage=$_REQUEST['go'];
 	switch ($callPage)
 		{
@@ -58,12 +59,6 @@
 			break;
 		//search
 		
-		
-		//home		
-					
-		case 'home':
-			require('home.php');
-			break;	
 		//log
 		//log
 		case 'register':
@@ -91,8 +86,13 @@
 			require('log/passchange.php');
 			break;			
 			
+		//home		
+					
+		case 'home':
 		default :
-			require("home.php");
+			require 'controller/HomeController.php';
+			$home = new HomeController();
+			$home->index();
 			break;								
 			
 		}

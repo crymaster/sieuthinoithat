@@ -19,11 +19,11 @@ $psContent = $row['att_value'];
 ?>
 <tr>
 <td width="40%" align="right"><span class="font_spec">
-<?php=$specName?>
+<?php $specName?>
 </span>:
 <hr class="hr" /></td>
 <td align="left">&nbsp;&nbsp;&nbsp;&nbsp; <span class="font_spec">
-<?php=$psContent?>
+<?php $psContent?>
 </span>
 <hr class="hr" /></td>
 </tr>
