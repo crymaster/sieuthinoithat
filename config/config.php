@@ -14,4 +14,22 @@ define('DB_HOST', 'localhost');
 define('DB_NAME', 'sieuthinoithat');
 define('DB_USER', 'root');
 define('DB_PASS', '');
+
+/**
+ * Configuration for Model
+ */
+define('MODEL_PRODUCT', 'ProductModel');
+
+/**
+ *  SESSION key
+ */
+define('CUSTOMER_ID', 'cusID');
+define('CUSTOMER_USER', 'CusUser');
+define('CUSTOMER_EMAIL', 'CusEmail');
+define('CUSTOMER_NAME', 'Name');
+define('CUSTOMER_PASSWORD', 'cuspass');
+define('PRODUCT_VIEW', 'proView');
+
+
+
 ?>

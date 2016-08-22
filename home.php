@@ -16,7 +16,7 @@
 	<div class="clear"></div>
 	
 	<div id="slide">
-		<?php 
+		<?php
 		foreach ($data['product_list'] as $product) {
 			echo "<div class='item'><a class='item_text' href='index.php?go=product_detail&cateID=$product->cateID&pid=$product->proID&gpCateID=$product->gpCateID' ><img src='image/$product->images' alt='$product->proName'><div>$product->proName</div></a></div>";	
 		} ?>

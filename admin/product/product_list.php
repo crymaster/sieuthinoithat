@@ -7,14 +7,14 @@ $page = "admin.php?go=product_list";
 	if($supID==0)
 	{
 		$sql = "SELECT     *
-		FROM         Supplier INNER JOIN
-		product ON Supplier.subID = product.subID INNER JOIN
+		FROM         supplier INNER JOIN
+		product ON supplier.subID = product.subID INNER JOIN
 		product_category ON product.proID = product_category.proID order by product.proID ";
 	}
 	else{
 		$sql = "SELECT     *
-		FROM         Supplier INNER JOIN
-		product ON Supplier.subID = product.subID INNER JOIN
+		FROM         supplier INNER JOIN
+		product ON supplier.subID = product.subID INNER JOIN
 		product_category ON product.proID = product_category.proID where product.subID='".$supID."'";
 	}
 

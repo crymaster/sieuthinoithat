@@ -15,7 +15,7 @@ $action=$_REQUEST['action'];
 		//tạo câu lệnh
 		if($proSalePrice=='')
 		{
-		$sql_addpro = "insert into product(proName,proDes,price,images,postTime,status,subID) 															values('$proName','$proDescription',$proPrice,'$proImage',NOW(),'$proStatus','$supID')";
+			$sql_addpro = "insert into product(proName,proDes,price,images,postTime,status,subID) 															values('$proName','$proDescription',$proPrice,'$proImage',NOW(),'$proStatus','$supID')";
 		}
 		else
 		{
@@ -56,6 +56,25 @@ $action=$_REQUEST['action'];
 		{
 			
 		}
+		
+		$color = $_REQUEST["txt18"];
+		$sql_product_relation = 
+		"INSERT INTO product_relation
+			(proId1, proId2, color_point, category_point, related_point, total_point)
+		SELECT
+			$proID
+			,P.proId
+			,IF(AP.attID IS NULL,0,1) AS colorId
+			,IF(PC.cateID = $cateID, 0, 1)
+			,1
+			,0
+		FROM product P
+		LEFT JOIN product_category PC
+			ON 	P.proID = PC.proID
+		INNER JOIN att_product AP
+			ON AP.proId = P.proID
+			AND AP.att_value = '$color'";
+		$result = mysql_query($sql_product_relation,$connect);
 		echo("<script> alert('Thêm mới sản phẩm thành công !');</script>");
 		echo("<script> window.location='admin.php?go=product_list'; </script>");
 

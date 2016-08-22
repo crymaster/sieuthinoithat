@@ -15,7 +15,8 @@ $page="admin.php?go=search&action=search";
 $record_per_page = 15;
 	$pagenum = $_REQUEST["page"];
 	$action=$_REQUEST['action'];
-	
+
+$totalpage = 0;
 if($action=="search")
 {
 	$gpCateID=$_REQUEST["gpCateID"];
@@ -88,8 +89,8 @@ if($action=="search")
 		
 		<?php
 		$sql_sum = "SELECT  product.*   
-		FROM         Category INNER JOIN
-		product_category ON Category.cateID = product_category.cateID INNER JOIN product ON product_category.proID=product.proID INNER JOIN
+		FROM         category INNER JOIN
+		product_category ON category.cateID = product_category.cateID INNER JOIN product ON product_category.proID=product.proID INNER JOIN
 		supplier ON product.subID=supplier.subID Where " .$expression." Order By product.postTime DESC" ;
 		//echo $sql_sum; 
 		?>
@@ -135,12 +136,12 @@ $sql="Select * from group_category";
 $resuilt=mysql_query($sql,$connect);
 
 ?>
-<select name="group_category" id="group_category" onChange="location.href='admin.php?go=search&gpCateID='+this.value+'&page=<?php echo $pagenum ?>'">
+<select name="group_category" id="group_category">
 <option value="0" >--Chọn loại sản phẩm--</option>
 <?php
 while($row=mysql_fetch_array($resuilt))
 {
-	if($row['gpCateID']==$group_category || $row['gpCateID']==$gpCateID ){
+	if((isset($group_category) && $row['gpCateID']==$group_category) || (isset($gpCateID) &&$row['gpCateID']==$gpCateID )){
 ?>
 	
 <option value="<?php echo $row['gpCateID']; ?>" selected="selected"><?php echo $row['gpCateName']; ?></option>
@@ -159,14 +160,21 @@ while($row=mysql_fetch_array($resuilt))
 <td class="row" align="right" colspan="4">Chọn dòng sản phẩm</td>
 <td class="row" align="left" colspan="4"><label>
 <?php
-		$sql1="select*from category where gpCateID='".$gpCateID."' OR gpCateID='".$group_category."'";
+		$where = 'WHERE 1=1';
+		if (isset($gpCateID)) {
+			$where = $where . 'AND gpCateID='.$gpCateID;
+		}
+		if (isset($group_category)) {
+			$where = $where . ' AND gpCateID='.$group_category;
+		}
+		$sql1="select*from category $where";
 		$resuilt1=mysql_query($sql1,$connect);
 ?>
 	<select name="category" id="category">
 	<option value="0">--Chọn dòng sản phẩm--</option>
 	<?php
 		while($row1=mysql_fetch_array($resuilt1)) {
-		if($row1['cateID']==$category){?>
+		if(isset($category) && $row1['cateID']==$category){?>
 		<option value="<?php echo $row1['cateID'] ?>" selected="selected"> <?php echo $row1['cateName'] ?></option>
 	<?php
 	} else { ?>
@@ -187,7 +195,7 @@ while($row=mysql_fetch_array($resuilt))
 	<option value="0">--Chọn nhà sản xuất</option>
 	<?php
 		while($row2=mysql_fetch_array($resuilt2)) {
-			if($row2['subID']==$supplier)
+			if(isset($supplier) && $row2['subID']==$supplier)
 			{?>
 				<option value="<?php echo $row2['subID'];?>" selected="selected"><?php echo $row2['subName']?></option>
 		<?php	}
@@ -220,7 +228,7 @@ while($row=mysql_fetch_array($resuilt))
 				{
 					if($row_price['seaID']==$check)
 					{
-						if($row_price['seaID']==$IDprice) {
+						if(isset($IDprice) && $row_price['seaID']==$IDprice) {
 					?>
 						<option value="<?php echo $row_price['seaID']; ?>" selected="selected"><?php echo 'Lớn hơn '.number_format($row_price['fromPrice']).'VNĐ'; ?> </option>
 					<?php	
@@ -233,7 +241,7 @@ while($row=mysql_fetch_array($resuilt))
 					}
 						else
 						{
-							if($row_price['seaID']==$IDprice) {
+							if(isset($IDprice) && $row_price['seaID']==$IDprice) {
 					?>	
 					<option value="<?php echo $row_price['seaID']; ?>" selected="selected"> <?php echo 'Lớn hơn '.number_format($row_price['fromPrice']).' VNĐ Nhỏ hơn '.number_format($row_price['toPrice']).' VNĐ'; 									?></option>
 				<?php }
@@ -261,13 +269,15 @@ while($row=mysql_fetch_array($resuilt))
 <td class="row_one" colspan="2" align="center"><img src="media/s_fulltext.png" width="50" height="19" /></td>
 </tr>
 <?php
-	$resuilt_fn=mysql_query($sql_sum1,$connect);
-	if($resuilt_fn)
+	if(isset($sql_sum1)) {
+		$resuilt_fn=mysql_query($sql_sum1,$connect);
+	}
+	if(isset($resuilt_fn) && $resuilt_fn)
 	{ ?>
 	<tr>
-		<td class="row" align="center" colspan="8"> Số sản phẩm tìm thấy là:<b style="color:#FF0000"> <?phpphp echo mysql_num_rows($resuilt_sum)  ?></b></td>
+		<td class="row" align="center" colspan="8"> Số sản phẩm tìm thấy là:<b style="color:#FF0000"> <?php echo mysql_num_rows($resuilt_sum)  ?></b></td>
 	</tr>
-	<?phpphp
+	<?php
 			while($row_fn = mysql_fetch_array($resuilt_fn))
 			{
 					?>

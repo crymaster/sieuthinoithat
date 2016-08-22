@@ -23,11 +23,11 @@ Item lien quan:
 A-Item duoc mua ngay truoc/sau item chinh boi cac user khac: 0.3
 B-Cung category: 0.2
 C-Cung mau sac: 0.1
-=> Do lien quan = 0.3xA + 0.2xB + 0.1xC
+=> Do lien quan = 3xA + 2xB + 1xC
 
 -Thoi diem tinh toan do lien quan
 1.Khi insert new product: product_add_new.php
 2.Khi edit product: product_edit.php
 3.Khi mua san pham: shoppingcart_send3.php
 
--Tao bang PRODUCT_RELATION(id,productId1,productId2,point)
+-Tao bang PRODUCT_RELATION(id,productId1,productId2,color_point, category_point, related_point, total_point)

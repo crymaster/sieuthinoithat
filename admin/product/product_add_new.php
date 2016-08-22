@@ -1,7 +1,8 @@
 <?php
 // Dung de tu loai san pham ta lay duoc dong san pham
 		
-		//$gpCate=$_REQUEST['gpCate'];
+		$anh = 'EA10_101A.jpg';
+		$gpCate=$_REQUEST['gpCate'];
 		if($gpCate==0)
 		{
 			$sqlCateName="select * from categoty order by cateID";
@@ -160,9 +161,9 @@
 					</select></td>
 					<td class="row" rowspan="7" align="center" valign="middle">
 	
-						<input name="txtanh" type="text" value="<?php=$anh?>" size="40" />
+						<input name="txtanh" type="text" value="<?php echo $anh?>" size="40" />
 							<input name="upload" type="button" id="upload" value="Upload" onclick="window.open('upload.php?Thumuc=../image&form=frmadd&input=txtanh&anh=AnhSP','','width=400,height=200');"/>
-	<p><img name="AnhSP" id="AnhSP" src="../image/<?php=$anh?>" width="200" height="200" alt="" /></p>		</td>
+	<p><img name="AnhSP" id="AnhSP" src="../image/<?php echo $anh?>" width="200" height="200" alt="" /></p>		</td>
 	
 				<tr>
 					<td class="row" width="40%" align="right">Nhà Cung cấp </td>
@@ -239,7 +240,7 @@
 						
 							<tr>
 								<td class="row" width="40%" align="right"><?php echo($rown['attName']);?></td>
-								<td class="row" align="left"><input  name="txt<?php=$rown['attID']?>" type="text" size="30"/></td>
+								<td class="row" align="left"><input  name="txt<?php echo $rown['attID']?>" type="text" size="30"/></td>
 							</tr>
 						
 					

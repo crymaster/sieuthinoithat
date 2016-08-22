@@ -63,6 +63,30 @@ Redirect('index.php?go=shoppingcart_login');
 		//echo $sql;
 		mysql_query($sql,$connect);
 	}
+	$key = array_keys($cart);
+	for ($i=0; $i < count($key)-1; $i++) { 
+		for ($j=$i + 1; $j < count($key); $j++) { 
+			$sql = "SELECT COUNT(1) 
+					FROM product_relation 
+					WHERE (proId1 = $key[$i] AND proId2 = $key[$j])
+					OR	  (proId1 = $key[$j] AND proId2 = $key[$i])";
+			$query = mysql_query($sql,$connect);
+			$count = mysql_fetch_array($query);
+			if ($count[0] == 0) {
+				$sql = "INSERT INTO product_relation
+						(proId1, proId2, color_point, category_point, related_point, total_point)
+						VALUE
+						($key[$i], $key[$j], 0, 0, 2, 0)";
+				mysql_query($sql,$connect);
+			} else {
+				$sql = "UPDATE product_relation
+						SET related_point = related_point + 1
+						WHERE (proId1 = $key[$i] AND proId2 = $key[$j])
+						OR	  (proId1 = $key[$j] AND proId2 = $key[$i])";
+				mysql_query($sql,$connect);
+			}
+		}
+	}
 	//Xoa shopping cart
 	$_SESSION["CART"] = "";
 	Redirect('index.php?go=shoppingcart_send3');					

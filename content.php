@@ -25,7 +25,10 @@
 			require('include/product_list.php');
 			break;
 		case 'product_detail':
-			require('include/product_detail.php');
+			require 'controller/ProductController.php';
+			$product_controller = new ProductController();
+			$product_controller->updateViewNumber();
+			require ('include/product_detail.php');
 			break;	
 			
 		//search
@@ -60,7 +63,6 @@
 		//search
 		
 		//log
-		//log
 		case 'register':
 			require('log/register.php');
 			break;
@@ -86,8 +88,7 @@
 			require('log/passchange.php');
 			break;			
 			
-		//home		
-					
+		//home				
 		case 'home':
 		default :
 			require 'controller/HomeController.php';
