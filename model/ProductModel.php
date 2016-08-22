@@ -80,6 +80,7 @@ class ProductModel {
 		$sql_update =
 		'UPDATE customer_view_history
 		SET 	viewNumber = viewNumber + 1
+				,lastViewDate = NOW()
 		WHERE	cId = :cId
 		AND		proId = :proId';
 		$param_array = array(':cId' 		=> $customer_id, 
@@ -88,5 +89,68 @@ class ProductModel {
 		$query_update->execute($param_array);
 	}
 
+	public function getRelatedProduct($proId_array) {
+		$in_list = implode(",", $proId_array);
+		$sql = 
+		"SELECT	P. proID
+				,P.proName
+				,P.images
+				,C.cateID
+				,GC.gpCateID
+		FROM
+			(SELECT	 P. proID
+					,P.proName
+					,P.images
+					,PR.total_point
+			FROM		product	 P
+			INNER JOIN	product_relation PR
+				ON	PR.proId2 = P.proID
+				AND PR.proId1 IN ($in_list)
+			UNION
+			SELECT 	P. proID
+					,P.proName
+					,P.images
+					,PR.total_point
+			FROM		product	 P
+			INNER JOIN	product_relation PR
+				ON	PR.proId1 = P.proID
+				AND PR.proId2 IN ($in_list)
+			) P
+		INNER JOIN 	product_category PC 
+			ON 		P.proID = PC.proID
+		INNER JOIN 	category C 
+			ON 		PC.cateID = C.cateID
+		INNER JOIN 	group_category GC 
+			ON 		C.gpCateID = GC.gpCateID
+		ORDER BY	P.total_point DESC
+		LIMIT		0, 10";
+		$query = $this->db->prepare($sql);
+		$query->execute();
+		return $query->fetchAll();
+	}
+	
+	public function getRecentViewProduct($customer_id) {
+		$sql = 
+		"SELECT 	P. proID
+					,P.proName
+					,P.images
+					,C.cateID
+					,GC.gpCateID
+		FROM		customer_view_history VH
+		INNER JOIN	product	P
+			ON		P.proID = VH.proId
+		INNER JOIN 	product_category PC 
+			ON 		P.proID = PC.proID
+		INNER JOIN 	category C 
+			ON 		PC.cateID = C.cateID
+		INNER JOIN 	group_category GC 
+			ON 		C.gpCateID = GC.gpCateID
+		WHERE		VH.cId = 6
+		ORDER BY	VH.lastViewDate DESC
+		LIMIT		0, 10;";
+		$query = $this->db->prepare($sql);
+		$query->execute();
+		return $query->fetchAll();
+	}
 }
 ?>

@@ -29,6 +29,7 @@ define('CUSTOMER_EMAIL', 'CusEmail');
 define('CUSTOMER_NAME', 'Name');
 define('CUSTOMER_PASSWORD', 'cuspass');
 define('PRODUCT_VIEW', 'proView');
+define('CART', 'CART');
 
 
 
